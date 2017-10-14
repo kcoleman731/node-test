@@ -13,8 +13,11 @@ program
   .parse(process.argv);
 
 if (program.port) {
+    var port = program.args[0]
+    var portString = `${port}:9092`
+    console.log("Port string: ", portString)
     var producer = new Kafka.Producer({
-        'metadata.broker.list': '10.2.43.213:9092'
+        'metadata.broker.list': portString
     });
 
     console.log('Taste test cheese');
