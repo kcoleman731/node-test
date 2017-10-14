@@ -14,7 +14,7 @@ program
 
 if (program.port) {
     var producer = new Kafka.Producer({
-        'metadata.broker.list': 'localhost:9092'
+        'metadata.broker.list': '10.2.43.213:9092'
     });
 
     console.log('Taste test cheese');
