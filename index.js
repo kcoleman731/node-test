@@ -49,7 +49,9 @@ var kafka2 = require('kafka-node')
 
 if (program.port) {
     console.log("CONNECTING 2ND Client")
-    var client = new kafka2.KafkaClient({ kafkaHost: 'localhost:9092' });
+    var port = program.args[0]
+    var portString = `${port}:9092`
+    var client = new kafka2.KafkaClient({ kafkaHost: portString });
     client.on('connect', function () {
         console.log("CONNECTED 2ND CLIENT")
     });
