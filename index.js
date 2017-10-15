@@ -44,3 +44,16 @@ if (program.port) {
         console.error(err);
     })
 }
+
+var kafka2 = require('kafka-node')
+
+if (program.port) {
+    console.log("CONNECTING 2ND Client")
+    var client = new kafka2.KafkaClient({ kafkaHost: 'localhost:9092' });
+    client.on('connect', function () {
+        console.log("CONNECTED 2ND CLIENT")
+    });
+    client.on('error', function (err) {
+        console.log("CONNECTED 2ND CLIEN ERR", err)
+    });
+}
